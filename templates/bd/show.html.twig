@@ -17,16 +17,12 @@
 				<h2>{{ produit.titre }}</h2>
 				<div>
 					{{ produit.heros}}
-					{{ produit.idauteur}}
+					{{ produit.auteur}}
 				</div>
 				<div class="content">
-					<img src=" {{ asset('images/') }}
-										{{produit.refbd}}
-										{{'.jpg'}}"></img>
+					<img src=" {{ asset('images/') }}{{produit.refbd}}{{'.jpg'}}" alt=" {{produit.refbd}} " class="thumbnail"></img>
 
-
-				<p>
-					{{ produit.resume }}
+				<p>{{ produit.resume }}
 				</p>
 				{{produit.refbd}}
 				<hr>

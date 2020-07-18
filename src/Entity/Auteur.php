@@ -51,17 +51,7 @@ class Auteur
 
         return $this;
     }
-    /**
-     * Generates the magic method
-     * 
-     */
-    public function __toString(){
-        // to re show the name of th Auteur in the select
-        return $this->auteur;
-        //to re show the id of th Auteur in the select
-        // return $this->id;
-    }
-    
+      
 
     /**
      * @return Collection|Produit[]
@@ -92,6 +82,16 @@ class Auteur
         }
 
         return $this;
+    }
+
+    /**
+     * Generates the magic method
+     * 
+     */
+    public function __toString() {
+        // to show the name of the Genre in the select
+        return $this->auteur;
+        // to show the id of the Genre in the select
     }
     
 }

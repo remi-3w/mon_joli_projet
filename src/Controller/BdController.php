@@ -38,8 +38,21 @@ class BdController extends AbstractController
      */
     public function show($id, ProduitRepository $repo)
     {
-        $produits = $repo->findAll(array("id_auteur" => $id ));
-        $couvertures =['bd000001' , 'bd000007', 'bd000013'];
+        $produits = $repo->findBy(array("auteur" => $id ));
+        // $couvertures =['bd000001' , 'bd000007', 'bd000013'];
+
+        $couvertures=array();
+        $dir= "images/";
+            if ($dossier =opendir($dir)){
+                while (($item = readdir($dossier)) !== false) {
+                    if ($item=[0] =='.'){continue;}                     
+                    $pos_point = strpos ($item, '.');
+                    $item =substr($item,0,$pos_point);
+                    $couvertures[] = strtoupper($item);
+              }
+              closedir($dossier);
+            }
+
 
         return $this->render('bd/show.html.twig', [
             'produits' => $produits,

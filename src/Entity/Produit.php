@@ -191,7 +191,7 @@ class Produit
     {
         $this->auteur = $auteur;
 
-        return $this->auteur;
+        return $this;
     }
 
     public function getGenre(): ?Genre
@@ -229,6 +229,8 @@ class Produit
 
         return $this;
     }
-   
-   
+
 }
+   
+   
+
