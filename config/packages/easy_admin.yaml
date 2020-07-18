@@ -1,0 +1,32 @@
+easy_admin:
+  entities:
+    Auteur:
+      class: App\Entity\Auteurs
+      label: "Auteur"
+      form:
+        fields:
+          - {
+              type: "text",
+              icon: "th-list",
+              label: "Informations",
+              css_class: "col-lg-7",
+            }
+
+    Produit:
+      class: App\Entity\Produit
+      label: "Produit"
+      form:
+        fields:
+          - [
+              type: "texts",
+              icon: "th-list",
+              label: "Informations",
+              css_class: "col-lg-10",
+            ]
+
+          - [
+              type: "text",
+              icon: "th-list",
+              label: "Informations",
+              css_class: "col-lg-8",
+            ]

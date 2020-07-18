@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des bd
+{% endblock %}
+
+{% block body %}
+
+	<!-- div.example-wrapper>h1{La liste des auteurs} -->
+	<div class="example-wrapper">
+		<h1>La liste de ces oeuvres
+		</h1>
+
+
+		{% for produit in produits %}
+
+			<article>
+				<h2>{{ produit.titre }}</h2>
+				<div>
+					{{ produit.heros}}
+					{{ produit.idauteur}}
+				</div>
+				<div class="content">
+					<img src=" {{ asset('images/') }}
+										{{produit.refbd}}
+										{{'.jpg'}}"></img>
+
+
+				<p>
+					{{ produit.resume }}
+				</p>
+				{{produit.refbd}}
+				<hr>
+			</div>
+		</article>
+	{% endfor %}
+
+{% endblock %}
