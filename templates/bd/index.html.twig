@@ -9,10 +9,12 @@
 	<div class="example-wrapper">
 		<h1>La liste des auteurs</h1>
 
+
 		{% for auteur in auteurs %}
 			<h2>
-				{{ auteur.auteur }}
+				<a href="{{ path('show',{'id': auteur.id} ) }}">{{ auteur.auteur }}</a>
 			</h2>
+
 		{% endfor %}
 	</div>
 {% endblock %}

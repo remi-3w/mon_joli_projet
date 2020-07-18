@@ -34,10 +34,11 @@ class BdController extends AbstractController
     }
 
     /**
-     * @Route("/auteurs/{id}", name="bd_show")
+     * @Route("/bd/livres/{id}", name="show")
      */
     public function show($id, ProduitRepository $repo)
     {
+        // $Produits = $repo->findAll($id);
         $produits = $repo->findBy(array("auteur" => $id ));
         // $couvertures =['bd000001' , 'bd000007', 'bd000013'];
 
