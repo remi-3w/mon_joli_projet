@@ -7,8 +7,9 @@ use App\Repository\ProduitRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 class BdController extends AbstractController
-{
+{ 
     /**
      * @Route("/auteurs", name="bd")
      */
@@ -36,13 +37,13 @@ class BdController extends AbstractController
     /**
      * @Route("/bd/livres/{id}", name="show")
      */
-    public function show($id, ProduitRepository $repo)
+    public function show($id, ProduitRepository $repo, AuteurRepository $auteurs )
     {
-        // $Produits = $repo->findAll($id);
-        $produits = $repo->findBy(array("auteur" => $id ));
-        // $couvertures =['bd000001' , 'bd000007', 'bd000013'];
-
+        
+        $produits = $repo->findBy(array("auteur" => $id ));    
+            
         $couvertures=array();
+
         $dir= "images/";
             if ($dossier =opendir($dir)){
                 while (($item = readdir($dossier)) !== false) {
@@ -57,7 +58,8 @@ class BdController extends AbstractController
 
         return $this->render('bd/show.html.twig', [
             'produits' => $produits,
-            'couvertures' => $couvertures
+            'couvertures' => $couvertures,
+           
         ]);
     }
 }
