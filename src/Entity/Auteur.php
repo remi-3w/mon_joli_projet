@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AuteurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -84,14 +84,10 @@ class Auteur
         return $this;
     }
 
-    /**
-     * Generates the magic method
-     * 
-     */
-    public function __toString() {
-        // to show the name of the Genre in the select
+  
+    public function __toString() 
+    {
         return $this->auteur;
-        // to show the id of the Genre in the select
-    }
+   }
     
 }

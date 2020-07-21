@@ -25,16 +25,16 @@ security:
         check_path: security_login
 
       logout:
-        path: app_logout
-        target: bd
-
-      # activate different ways to authenticate
-      # https://symfony.com/doc/current/security.html#firewalls-authentication
-      # https://symfony.com/doc/current/security/impersonating_user.html
-      # switch_user: true
-
+        path: security_logout
+        target: home
+  # role_hierarchy:
+  #   ROLE_ADMIN: ROLE_USER
+  # activate different ways to authenticate
+  # https://symfony.com/doc/current/security.html#firewalls-authentication
+  # https://symfony.com/doc/current/security/impersonating_user.html
+  # switch_user: true
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-    - { path: ^/admin, roles: ROLE_ADMIN }
-    - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/admin, roles: ROLE_USER }
+  #   - { path: ^/profile, roles: ROLE_USER }

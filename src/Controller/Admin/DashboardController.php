@@ -2,13 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
+use App\Entity\Genre;
 use App\Entity\Auteur;
 use App\Entity\Produit;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\Fournisseur;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 
 
@@ -20,7 +24,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-
+       
         return parent::index();
     }
 
@@ -34,9 +38,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
-           yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
-           yield MenuItem::linkToCrud('Auteurs', 'fas fa-feather-alt', Auteur::class),
-           yield MenuItem::linkToCrud('Produits', 'fas fa-journal-whills', Produit::class)
+            MenuItem::linkToCrud('User', 'fab fa-earlybirds', User::class),
+            MenuItem::linkToCrud('Auteurs', 'fas fa-feather-alt', Auteur::class),
+            MenuItem::linkToCrud('Produits', 'fas fa-journal-whills', Produit::class),
+            MenuItem::linkToCrud('Genre', 'fas fa-cubes', Genre::class),
+            MenuItem::linkToCrud('Fournisseur', 'fas fa-dolly', Fournisseur::class)
         ];
     //     // yield MenuItem::linkToCrud('The Label', 'icon class', EntityClass::class);
     }

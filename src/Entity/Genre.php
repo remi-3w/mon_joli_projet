@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\GenreRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,12 +22,12 @@ class Genre
      */
     private $genre;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getGenre(): ?string
+    public function getGenre(): string
     {
         return $this->genre;
     }

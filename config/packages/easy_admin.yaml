@@ -1,32 +1,32 @@
 easy_admin:
-  entities:
-    Auteur:
-      class: App\Entity\Auteurs
-      label: "Auteur"
-      form:
-        fields:
-          - {
-              type: "text",
-              icon: "th-list",
-              label: "Informations",
-              css_class: "col-lg-7",
-            }
+  site_name: "Tableau de bord"
+  design:
+    brand_color: "#1ABC9C"
+    menu:
+      - { label: "Acceuil", route: "home", icon: "home" }
+      - { entity: "User", label: "Utilisateur", icon: "user" }
+      - { label: "Mes BD" }
+      - { entity: "Produit", label: "Produits" }
+      - { entity: "Genre", icon: "tag" }
 
+  entities:
+    # - App\Entity\User
+    # - App\Entity\Produit
+    # - App\Entity\Auteur
+    # - App\Entity\Genre
+
+    Auteur:
+      class: App\Entity\Auteur
     Produit:
       class: App\Entity\Produit
-      label: "Produit"
-      form:
-        fields:
-          - [
-              type: "texts",
-              icon: "th-list",
-              label: "Informations",
-              css_class: "col-lg-10",
-            ]
+      params: { sortDirection: "ASC" }
+    Genre:
+      class: App\Entity\Genre
+    # User:
+    #   class: App\Entity\User
 
-          - [
-              type: "text",
-              icon: "th-list",
-              label: "Informations",
-              css_class: "col-lg-8",
-            ]
+  user:
+    display_name: true
+    display-avatar: true
+    name_property_path: "username"
+    avatar_property_path: "gravatar"

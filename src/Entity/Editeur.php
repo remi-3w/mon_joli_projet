@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\EditeurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -44,6 +44,6 @@ class Editeur
      */
     public function __toString()
     {
-        return $this->Editeur;
+        return $this->editeur;
     }
 }

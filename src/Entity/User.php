@@ -45,9 +45,9 @@ class User implements UserInterface
     public $confirm_password;
      /**
      * 
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="array")
      **/
-    private $roles;    
+    private $roles= [];    
     
 
     
@@ -96,7 +96,14 @@ class User implements UserInterface
     
         
         return ['ROLE_USER'];
+        // return $this->roles;
         
+    }
+     public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
     
     public function getSalt(){} 
