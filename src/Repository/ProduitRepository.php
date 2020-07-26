@@ -35,17 +35,16 @@ class ProduitRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
-
-    /*
+    */ 
+    
+        
     public function findOneBySomeField($value): ?Produit
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
+      $querybuilder =  $this->createQueryBuilder( 'p')
+            ->count('p.auteur_id = :sum')
             ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+            
+        ;return $querybuilder->getQuery()->getResult();
+    
+    } 
 }

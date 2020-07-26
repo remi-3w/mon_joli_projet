@@ -11,16 +11,20 @@
 
 
 		{% for auteur in auteurs %}
-
 			<ul class="list-unstyled mt-3">
 				<li class="media">
 					<img src="https://via.placeholder.com/100x100" class="mr-3" alt="...">
 					<div class="media-body">
 						<h2>
 							<a href="{{ path('show',{'id': auteur.id} ) }}">{{ auteur.auteur }}</a>
-						</h2>
-						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+							<span class="badge badge-pill badge-info">{{ auteur.produits|length }}
+
+							</h2>
+							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+						</span>
 					</div>
+
 				</li>
 
 

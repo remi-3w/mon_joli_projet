@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\AuteurRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Auteur;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AuteurRepository;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=AuteurRepository::class)
@@ -26,7 +27,7 @@ class Auteur
     private $auteur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="Auteur", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="auteur", orphanRemoval=true)
      */
     private $produits;
 

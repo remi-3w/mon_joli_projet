@@ -16,10 +16,13 @@ class BdController extends AbstractController
     public function index(AuteurRepository $repo)
     {
         $auteurs = $repo->findAll();
+         
 
         return $this->render('bd/index.html.twig', [
             'controller_name' => 'BdController',
-            'auteurs' => $auteurs
+            'auteurs' => $auteurs,    
+            
+            
         ]);
     }
 
