@@ -25,8 +25,9 @@ class Auteur
      */
     private $auteur;
 
+
     /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="Auteur", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="auteur", orphanRemoval=true)
      */
     private $produits;
 
@@ -34,6 +35,7 @@ class Auteur
     {
         $this->produits = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -51,6 +53,7 @@ class Auteur
 
         return $this;
     }
+
       
 
     /**
@@ -90,4 +93,5 @@ class Auteur
         return $this->auteur;
    }
     
+
 }

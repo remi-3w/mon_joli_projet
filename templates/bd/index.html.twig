@@ -8,22 +8,20 @@
 	<!-- div.example-wrapper>h1{La liste des auteurs} -->
 	<div class="example-wrapper m-4">
 		<h1>La liste des auteurs</h1>
-
-
 		{% for auteur in auteurs %}
-
 			<ul class="list-unstyled mt-3">
 				<li class="media">
 					<img src="https://via.placeholder.com/100x100" class="mr-3" alt="...">
 					<div class="media-body">
-						<h2>
-							<a href="{{ path('show',{'id': auteur.id} ) }}">{{ auteur.auteur }}</a>
-						</h2>
-						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+						<h2><a href="{{ path('show',{'id': auteur.id} ) }}">{{ auteur.auteur }}</a></h2><span class="badge badge-primary badge-pill">{{ auteur.produits|length }}</span>
+						<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<p>
 					</div>
 				</li>
-
-
-			{% endfor %}
-		</div>
-	{% endblock %}
+			</ul>	
+		{% endfor %}
+		<div class="navigation">
+			{{ knp_pagination_render(auteurs) }}
+		</div>		
+	</div>
+		
+{% endblock %}

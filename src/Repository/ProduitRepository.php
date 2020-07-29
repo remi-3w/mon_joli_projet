@@ -20,11 +20,12 @@ class ProduitRepository extends ServiceEntityRepository
         parent::__construct($registry, Produit::class);
     }
 
-    // /**
-    //  * @return Produit[] Returns an array of Produit objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Produit[] Returns an array of Produit objects
+     */
+    
+/***
+    public function findproduit($value)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

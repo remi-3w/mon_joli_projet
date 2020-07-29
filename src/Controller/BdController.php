@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\AuteurRepository;
 use App\Repository\ProduitRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -13,13 +15,23 @@ class BdController extends AbstractController
     /**
      * @Route("/auteurs", name="bd")
      */
-    public function index(AuteurRepository $repo)
-    {
-        $auteurs = $repo->findAll();
+    public function index( AuteurRepository $repo , PaginatorInterface $paginator, Request $request)
+    {   $allauthors = $repo->findAll();        
+       
+         // Paginate the results of the query
+         $auteurs = $paginator->paginate(
+            // Doctrine Query, not results
+            $allauthors,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            5
+        );
 
         return $this->render('bd/index.html.twig', [
             'controller_name' => 'BdController',
-            'auteurs' => $auteurs
+            'auteurs' => $auteurs,
+          
         ]);
     }
 
@@ -40,7 +52,8 @@ class BdController extends AbstractController
     public function show($id, ProduitRepository $repo, AuteurRepository $auteurs )
     {
         
-        $produits = $repo->findBy(array("auteur" => $id ));    
+        $produits = $repo->findBy(array("auteur" => $id ));
+        $auteurs = $repo->findAll();       
             
         $couvertures=array();
 
@@ -59,6 +72,7 @@ class BdController extends AbstractController
         return $this->render('bd/show.html.twig', [
             'produits' => $produits,
             'couvertures' => $couvertures,
+            'auteurs' => $auteurs,
            
         ]);
     }
